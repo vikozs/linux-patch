@@ -1,0 +1,20 @@
+# Run artifacts. These describe your fleet's patch state and what is missing;
+# keep them out of version control.
+patch_plan.json
+*plan*.json
+!examples/sample_plan.json
+!tests/fixtures/*.json
+patch_results.json
+*results*.json
+patch_report.xlsx
+*.xlsx
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/

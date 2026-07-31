@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linux-patch"
+version = "1.0.0"
+description = "Staged dnf patch management across a RHEL 9 fleet. Discover pending updates, tag security advisories, apply with live re-validation and opt-in serialized reboots."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Vid Kosir" }]
+keywords = ["linux", "patching", "dnf", "yum", "updates", "security", "ssh",
+            "rhel", "sysadmin", "fleet"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = ["openpyxl>=3.0"]
+
+[project.urls]
+Homepage = "https://github.com/vikozs/linux-patch"
+Issues = "https://github.com/vikozs/linux-patch/issues"
+
+[project.scripts]
+linux-patch = "linux_patch:main"
+
+[tool.setuptools]
+py-modules = ["linux_patch", "ssh_exec", "xlsx_safe"]

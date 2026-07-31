@@ -1,0 +1,5 @@
+# One host per line. Formats: host | user@host | host:port | user@host:port
+# Inline # comments and blank lines are ignored.
+web01.zav-mb.loc
+db01.zav-mb.loc
+app02.zav-mb.loc          # currently down
