@@ -42,14 +42,14 @@ pip install -r requirements.txt
 Discover, writing `patch_plan.json` and `patch_report.xlsx`:
 
 ```
-python3 linux_patch.py discover -H hosts.txt -u sa.vko \
+python3 linux_patch.py discover -H hosts.txt -u local.user \
     --ask-ssh-pass --sudo-pass-same-as-ssh
 ```
 
 Review the report, then apply, confirming per host:
 
 ```
-python3 linux_patch.py apply --plan patch_plan.json -u sa.vko \
+python3 linux_patch.py apply --plan patch_plan.json -u local.user \
     --ask-ssh-pass --sudo-pass-same-as-ssh
 ```
 
@@ -57,14 +57,14 @@ Security updates only, with a serialized reboot after each host:
 
 ```
 python3 linux_patch.py apply --plan patch_plan.json --security --reboot \
-    -H hosts.txt -u sa.vko --ask-ssh-pass --sudo-pass-same-as-ssh
+    -H hosts.txt -u local.user --ask-ssh-pass --sudo-pass-same-as-ssh
 ```
 
 Undo a host's most recent patch transaction:
 
 ```
-python3 linux_patch.py rollback --host web01.zav-mb.loc --txn 48 \
-    -u sa.vko --ask-ssh-pass --sudo-pass-same-as-ssh
+python3 linux_patch.py rollback --host web01.hostname.loc --txn 48 \
+    -u local.user --ask-ssh-pass --sudo-pass-same-as-ssh
 ```
 
 Re-render an existing plan to Excel without touching the fleet:
@@ -79,21 +79,21 @@ Password SSH plus password sudo, sharing one domain account, is the common
 case:
 
 ```
-python3 linux_patch.py discover -H hosts.txt -u sa.vko \
+python3 linux_patch.py discover -H hosts.txt -u local.user \
     --ask-ssh-pass --sudo-pass-same-as-ssh
 ```
 
 Non-interactive, password from the environment:
 
 ```
-SSH_PW='...' python3 linux_patch.py discover -H hosts.txt -u sa.vko \
+SSH_PW='...' python3 linux_patch.py discover -H hosts.txt -u local.user \
     --ssh-pass-env SSH_PW --sudo-pass-same-as-ssh
 ```
 
 Key-based auth with passwordless sudo:
 
 ```
-python3 linux_patch.py discover -H hosts.txt -u sa.vko -i ~/.ssh/id_ed25519
+python3 linux_patch.py discover -H hosts.txt -u local.user -i ~/.ssh/id_ed25519
 ```
 
 Passwords travel via stdin or the `SSHPASS` env var, never on the command line.

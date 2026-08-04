@@ -17,7 +17,7 @@ Quick use
 ---------
     from ssh_exec import SSHConfig, run_fleet, parse_hosts
 
-    cfg = SSHConfig(user="sa.vko", ask_ssh_pass=True, sudo_pass_same_as_ssh=True)
+    cfg = SSHConfig(user="local.user", ask_ssh_pass=True, sudo_pass_same_as_ssh=True)
     cfg.resolve_passwords()                      # prompts once, reuses for all
 
     hosts = parse_hosts("hosts.txt")

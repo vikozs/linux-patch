@@ -1,6 +1,6 @@
 [sudo] noise that should be ignored before the first fence
 ===FACTS===
-hostname=web01.zav-mb.loc
+hostname=web01.hostname.loc
 distro=Red Hat Enterprise Linux 9.3 (Plow)
 pm=dnf
 ===UPDATES===

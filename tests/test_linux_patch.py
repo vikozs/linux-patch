@@ -33,7 +33,7 @@ def test_split_sections_end_closes():
 def test_parse_facts():
     sec = lp.split_sections(fixture("discover_web01.txt"))
     facts = lp.parse_facts(sec["FACTS"])
-    assert facts["hostname"] == "web01.zav-mb.loc"
+    assert facts["hostname"] == "web01.hostname.loc"
     assert facts["pm"] == "dnf"
     assert "Red Hat" in facts["distro"]
 
@@ -72,7 +72,7 @@ def test_parse_history_id():
 # --- host_record ------------------------------------------------------------
 
 def test_host_record_tags_security_and_counts():
-    res = Result("web01.zav-mb.loc", ok=True, stdout=fixture("discover_web01.txt"))
+    res = Result("web01.hostname.loc", ok=True, stdout=fixture("discover_web01.txt"))
     rec = lp.host_record(res)
     assert rec["reachable"] is True
     assert rec["counts"]["total"] == 5
@@ -98,7 +98,7 @@ def test_parse_apply_result_reconciles_drift():
     # plan had 5 packages; vim-minimal is NOT in the live PRECHECK set -> drifted
     planned = [{"name": n} for n in
                ["openssl", "openssl-libs", "kernel", "sudo", "vim-minimal"]]
-    res = Result("web01.zav-mb.loc", ok=True, stdout=fixture("apply_web01.txt"))
+    res = Result("web01.hostname.loc", ok=True, stdout=fixture("apply_web01.txt"))
     out = lp.parse_apply_result(res, planned)
     assert out["status"] == "applied"
     assert set(out["applied"]) == {"openssl", "openssl-libs", "kernel", "sudo"}

@@ -20,12 +20,12 @@
   },
   "hosts": [
     {
-      "host": "web01.zav-mb.loc",
-      "hostname": "web01.zav-mb.loc",
+      "host": "web01.hostname.loc",
+      "hostname": "web01.hostname.loc",
       "reachable": true,
       "error": null,
       "facts": {
-        "hostname": "web01.zav-mb.loc",
+        "hostname": "web01.hostname.loc",
         "distro": "Red Hat Enterprise Linux 9.3 (Plow)",
         "pm": "dnf"
       },
@@ -84,12 +84,12 @@
       }
     },
     {
-      "host": "db01.zav-mb.loc",
-      "hostname": "db01.zav-mb.loc",
+      "host": "db01.hostname.loc",
+      "hostname": "db01.hostname.loc",
       "reachable": true,
       "error": null,
       "facts": {
-        "hostname": "db01.zav-mb.loc",
+        "hostname": "db01.hostname.loc",
         "distro": "Red Hat Enterprise Linux 9.4 (Plow)",
         "pm": "dnf"
       },
@@ -102,7 +102,7 @@
       }
     },
     {
-      "host": "app02.zav-mb.loc",
+      "host": "app02.hostname.loc",
       "reachable": false,
       "error": "Connection timed out",
       "facts": {},
